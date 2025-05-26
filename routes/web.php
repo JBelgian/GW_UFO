@@ -16,6 +16,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
+// Contact route
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 // Profile route
 Route::get('/profile', function () {
     return view('profile');

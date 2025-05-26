@@ -7,10 +7,13 @@
         <div class="flex flex-wrap rounded-lg bg-green-200 w-2/3 p-4 text-lg">
             <!-- Upper part -->
             <div class="flex w-full justify-between p-1">
-                <div class="text-2xl">Soort</div>
+                <div class="flex flex-col">
+                    <div class="text-2xl">Soort</div>
+                    <div class="text-base">Locatie</div>
+                </div>
                 <div class="flex flex-col">
                     <div class="flex justify-end">Datum - Tijd</div>
-                    <div class="flex justify-end">Locatie</div>
+                    <div class="flex justify-end text-base">gepost door: User</div>
                 </div>
             </div>
             <!-- Lower part -->

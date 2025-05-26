@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SightingController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Home route
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', [SightingController::class, 'index']);
 
 // About us route
 Route::get('/about', function () {

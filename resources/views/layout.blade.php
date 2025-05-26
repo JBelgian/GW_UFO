@@ -1,4 +1,4 @@
-<div class="bg-green-100 p-4">
+<div class="bg-green-100 h-full p-4">
     @include('header')
 
     <div class="mt-4">

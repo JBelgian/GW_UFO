@@ -1,7 +1,19 @@
 @extends('layout')
 
 @section('content')
-    <div>
-        
+    <div class="flex justify-center">
+        <div class="flex flex-wrap rounded-lg bg-green-200 w-2/3 p-4 text-lg">
+            <div class="flex w-full justify-between p-1">
+                <div class="text-2xl">Soort</div>
+                <div class="flex flex-col">
+                    <div class="flex justify-end">Datum - Tijd</div>
+                    <div class="flex justify-end">Locatie</div>
+                </div>
+            </div>
+            <div class="flex w-full">
+                <div class="w-2/3 mr-1 p-1 border border-green-900">Beschrijving</div>
+                <div class="w-1/3 ml-1 p-1 border border-green-900">Foto</div>
+            </div>
+        </div>
     </div>
 @endsection

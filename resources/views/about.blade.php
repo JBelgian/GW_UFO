@@ -3,9 +3,9 @@
 @section('content')
     <div class="flex justify-center">
         <!-- Box --> 
-        <div class="flex flex-col w-2/3 p-4 bg-green-200 text-green-900 rounded-lg">
+        <div class="flex flex-col w-2/3 p-4 bg-green-middle text-green-dark rounded-lg">
             <!-- Title -->
-            <h1 class="text-3xl p-2">Over Ons</h1>
+            <h1 class="text-3xl p-2 text-green-test">Over Ons</h1>
             <!-- Text -->
             <p class="p-2 text-justify">
                 Welkom bij Spot my Alien, hét platform voor iedereen die iets ongewoons aan de hemel heeft gezien. Of je nu een flitsend licht hebt opgemerkt, een vreemd object hebt gefotografeerd, of simpelweg je ervaring wilt delen: wij bieden een veilige ruimte waar jouw verhaal telt.
@@ -18,7 +18,7 @@
             </p>
             <p class="p-2 text-justify">
                 Heb jij iets vreemds gezien? Aarzel niet om je waarneming met ons te delen via onze 
-                <a href="" class="text-green-600">meldingspagina</a>. 
+                <a href="" class="text-green-test">meldingspagina</a>. 
                 Samen zoeken we naar antwoorden.
             </p>
         </div>

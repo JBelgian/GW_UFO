@@ -5,7 +5,7 @@
     @foreach($sightings as $sighting)
     <div class="flex justify-center">
         <!-- Boxes -->
-        <div class="flex flex-wrap rounded-lg bg-green-200 w-2/3 mb-4 p-4 text-lg">
+        <div class="flex flex-wrap rounded-lg bg-green-middle w-2/3 mb-4 p-4 text-green-dark text-lg">
             <!-- Upper part -->
             <div class="flex w-full justify-between p-1">
                 <div class="flex flex-col">

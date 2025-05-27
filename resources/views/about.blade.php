@@ -18,7 +18,7 @@
             </p>
             <p class="p-2 text-justify">
                 Heb jij iets vreemds gezien? Aarzel niet om je waarneming met ons te delen via onze 
-                <a href="" class="text-green-test">meldingspagina</a>. 
+                <a href="/rapport" class="text-green-test">meldingspagina</a>. 
                 Samen zoeken we naar antwoorden.
             </p>
         </div>

@@ -8,7 +8,7 @@
     </div>
     <!-- Note Alien sighting -->
     <div>
-        <a href="">Meld</a>
+        <a href="/rapport">Meld</a>
     </div>
     <!-- About us -->
     <div>

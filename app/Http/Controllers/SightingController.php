@@ -13,4 +13,9 @@ class SightingController extends Controller
         $sightings = Sighting::with('user', 'categoryRelation')->get(); 
         return view('home', compact('sightings'));
     }
+
+    public function rapport() {
+        $categories = Category::get();
+        return view('rapport', compact('categories'));
+    }
 }

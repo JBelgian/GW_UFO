@@ -9,7 +9,7 @@
             <!-- Upper part -->
             <div class="flex w-full justify-between p-1">
                 <div class="flex flex-col">
-                    <div class="text-2xl">{{$sighting->categoryRelation->description}}</div>
+                    <div class="text-2xl text-green-test">{{$sighting->categoryRelation->description}}</div>
                     <div class="text-base">{{$sighting->location}}</div>
                 </div>
                 <div class="flex flex-col">

@@ -10,6 +10,9 @@ Route::get('/', function () {
 // Home route
 Route::get('/home', [SightingController::class, 'index']);
 
+// Sightings rapport route
+Route::get('/rapport', [SightingController::class, 'rapport']);
+
 // About us route
 Route::get('/about', function () {
     return view('about');

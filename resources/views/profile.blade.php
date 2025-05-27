@@ -9,6 +9,7 @@
             <div class="text-3xl text-green-light pb-4">
                 Mijn Meldingen
             </div>
+            <!-- No sightings yet -->
             <div class="flex gap-6 flex-col">
                 <img src="{{ asset('Alien.jpg') }}" class="w-1/3 rounded-lg">
                 <div id="noAlienText" class="text-green-light content-center"></div>

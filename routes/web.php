@@ -4,6 +4,57 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SightingController;
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+// Home route
+Route::get('/home', [SightingController::class, 'index']);
+
+// Sightings rapport route
+Route::get('/rapport', [SightingController::class, 'rapport']);
+
+// About us route
+Route::get('/about', function () {
+    return view('about');
+});
+
+// Contact route
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+// Profile route
+Route::get('/profile', function () {
+    return view('profile');
+})->middleware(['auth', 'verified'])->name('profile');
+
+Route::middleware('auth')->group(function () {
+    //Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    //Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    //Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/subscribe', [SubscriptionController::class, 'show'])->name('subscribe');
+    Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
+
+});
+
+Route::get('/billing', function (Request $request) {
+    return $request->user()->redirectToBillingPortal(route('index'));
+})->middleware(['auth'])->name('billing');
+
+Route::post('stripe/webhook', '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook');
+
+require __DIR__.'/auth.php';
+
+/* 
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SubscriptionController;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +81,5 @@ Route::get('/billing', function (Request $request) {
 Route::post('stripe/webhook', '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook');
 
 require __DIR__.'/auth.php';
+
+*/

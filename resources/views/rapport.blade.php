@@ -19,7 +19,7 @@
                 Rapporteringsformulier
             </div>
             <form class="flex flex-col bg-green-middle p-2 rounded-lg text-green-dark">
-                <div class="flex flex-row justify-between p-2">
+                <div class="flex flex-row justify-between p-4">
                     <input type="datetime-local" class="w-2/5">
                     <select class="w-2/5">
                         <option>Kies een categorie</option>

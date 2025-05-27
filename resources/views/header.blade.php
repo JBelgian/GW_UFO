@@ -20,12 +20,20 @@
     </div>
     <!-- Login/Register -->
     <div class="flex flex-row gap-4">
-        <div>Login</div>
-        <div>Registreer</div>
+        <div>
+            <a href="login">Login</a>
+        </div>
+        <div>
+            <a href="registration">Registreer
+        </div>
     </div>
     <!-- Profile/Logout -->
     <div class="flex flex-row gap-4 hidden">
-        <div>Profiel</div>
-        <div>log uit</div>
+        <div>
+            <a href="/profile">Profiel</a>
+        </div>
+        <div>
+            <a href="logout">log uit</a>
+        </div>
     </div>
 </div>

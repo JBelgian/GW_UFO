@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function sighting() {
-        return $this->hasOne(Sighting::class);
+    protected $fillable = [
+        'description'
+    ];
+
+    /**
+     * Get the sightings for the category.
+     */
+    public function sightings()
+    {
+        return $this->hasMany(Sighting::class, 'category', 'id');
     }
 }

@@ -17,11 +17,19 @@ class Sighting extends Model
         'category'
     ];
 
-    public function user() {
+    /**
+     * Get the user that owns the sighting.
+     */
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function categoryRelation() {
-        return $this->belongsTo(Category::class, 'category');
+    /**
+     * Get the category that owns the sighting.
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category', 'id');
     }
 }

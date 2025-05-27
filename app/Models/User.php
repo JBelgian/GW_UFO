@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the sightings for the user.
+     */
+    public function sightings()
+    {
+        return $this->hasMany(Sighting::class);
+    }
 }

@@ -1,100 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laravel 12 Custom User Register Page - itsolutionstuff.com</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <style type="text/css">
-    body{
-      background: #F8F9FA;
-    }
-  </style>
-</head>
-<body>
+@extends('layout')
 
-<section class="bg-light py-3 py-md-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
-        <div class="card border border-light-subtle rounded-3 shadow-sm">
-          <div class="card-body p-3 p-md-4 p-xl-5">
-            <div class="text-center mb-3">
-              <a href="#!">
-                <img src="https://www.itsolutionstuff.com/assets/images/footer-logo-2.png" alt="BootstrapBrain Logo" width="250">
-              </a>
-            </div>
-            <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign up to your account</h2>
+@section('content')
+<div class="flex justify-center">
+    <div class="flex flex-col w-2/3">
+        <h2 class="flex text-green-light text-3xl justify-center m-2 p-2">Maak een account aan</h2>
+        <div class="flex flex-col bg-green-middle p-4 rounded-lg">
             <form method="POST" action="{{ route('register.post') }}">
               @csrf
 
-              @session('error')
-                  <div class="alert alert-danger" role="alert"> 
-                      {{ $value }}
-                  </div>
-              @endsession
-
               <div class="row gy-2 overflow-hidden">
-                <div class="col-12">
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="name@example.com" required>
-                    <label for="name" class="form-label">{{ __('Name') }}</label>
+                <div class="flex justify-center">
+                <div class="flex flex-col w-1/2 text-green-dark">
+                  <!-- name -->
+                  <div class="w-full m-2">
+                      <input type="text" class="w-full p-1 placeholder-green-dark @error('name') is-invalid @enderror" name="name" id="name" placeholder="naam" required>
                   </div>
                   @error('name')
-                        <span class="text-danger" role="alert">
+                          <span class="text-danger" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
-                </div>
-                <div class="col-12">
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" required>
-                    <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                  <!-- email -->
+                  <div class="w-full m-2">
+                    <input type="email" class="w-full p-1 placeholder-green-dark @error('email') is-invalid @enderror" name="email" id="email" placeholder="email" required>
                   </div>
                   @error('email')
-                        <span class="text-danger" role="alert">
+                        <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
-                </div>
-                <div class="col-12">
-                  <div class="form-floating mb-3">
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="" placeholder="Password" required>
-                    <label for="password" class="form-label">{{ __('Password') }}</label>
+                  <!-- password -->
+                  <div class="w-full m-2 justify-end">
+                      <input type="password" class="w-full p-1 placeholder-green-dark @error('password') is-invalid @enderror" name="password" id="password" value="" placeholder="paswoord" required>
                   </div>
                   @error('password')
-                      <span class="text-danger" role="alert">
+                      <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
                       </span>
                   @enderror
                 </div>
-                <div class="col-12">
-                  <div class="form-floating mb-3">
-                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" value="" placeholder="password_confirmation" required>
-                    <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
-                  </div>
-                  @error('password_confirmation')
-                      <span class="text-danger" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
                 </div>
-                <div class="col-12">
-                  <div class="d-grid my-3">
-                    <button class="btn btn-primary btn-lg" type="submit">{{ __('Register') }}</button>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <p class="m-0 text-secondary text-center">Have an account? <a href="{{ route('login') }}" class="link-primary text-decoration-none">Sign in</a></p>
+                @session('error')
+                    <div class="flex justify-center text-green-dark p-2" role="alert"> 
+                        {{ $value }}
+                    </div>
+                @endsession
+                <div class="flex justify-center">
+                    <button class="w-4/5 mt-2 p-2 bg-green-accent text-green-dark rounded-xl" type="submit">{{ __('Registreer') }}</button>
                 </div>
               </div>
             </form>
+            <div class="flex flex-row justify-center text-green-dark gap-2 mt-4">
+                <span>Heb je een account? </span><a href="{{ route('login') }}" class="link-primary text-decoration-none">Log in</a>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-</body>
-</html>
+</div>
+@endsection

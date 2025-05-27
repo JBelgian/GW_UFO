@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Sighting extends Model
 {
@@ -17,11 +19,13 @@ class Sighting extends Model
         'category'
     ];
 
-    public function user() {
+    public function user(): BelongsTo 
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function categoryRelation() {
-        return $this->belongsTo(Category::class, 'category');
+    public function categories(): HasOne
+    {
+        return $this->hasOne(Category::class);
     }
 }

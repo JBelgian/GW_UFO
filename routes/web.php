@@ -9,10 +9,11 @@ Route::get('/', function () {
 });
 
 // Home route
-Route::get('/home', [SightingController::class, 'index']);
+Route::get('/home', [SightingController::class, 'index'])->name('home');
 
-// Sightings rapport route
+// Sightings rapport routes
 Route::get('/rapport', [SightingController::class, 'rapport']);
+Route::post('sighting-post', [SightingController::class, 'sighting'])->name('sighting.post');
 
 // About us route
 Route::get('/about', function () {

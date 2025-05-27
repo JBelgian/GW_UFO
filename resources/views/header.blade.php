@@ -36,7 +36,7 @@
             <a href="/profile">Profiel</a>
         </div>
         <div>
-            <a href="logout">log uit</a>
+            <a href="logout">Log uit</a>
         </div>
     </div>
     @endauth

@@ -19,16 +19,19 @@
         <a href="/contact">Contact</a>
     </div>
     <!-- Login/Register -->
+    @guest
     <div class="flex flex-row gap-4">
         <div>
-            <a href="login">Login</a>
+            <a href="login">Log in</a>
         </div>
         <div>
-            <a href="registration">Registreer
+            <a href="registration">Registreer</a>
         </div>
     </div>
+    @endguest
     <!-- Profile/Logout -->
-    <div class="flex flex-row gap-4 hidden">
+    @auth
+    <div class="flex flex-row gap-4">
         <div>
             <a href="/profile">Profiel</a>
         </div>
@@ -36,4 +39,5 @@
             <a href="logout">log uit</a>
         </div>
     </div>
+    @endauth
 </div>

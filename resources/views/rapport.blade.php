@@ -37,8 +37,13 @@
                     </div>
                 </div>
                 <div class="flex flex-row justify-center gap-6">
-                    <button class="w-2/5 bg-green-accent p-2 rounded-lg">Indienen</button>
-                    <button class="w-2/5 bg-green-accent p-2 rounded-lg">Annuleren</button>
+                    @guest
+                        <a class="w-2/5 bg-green-accent p-2 rounded-lg text-center" href="login">Log in om een melding te doen</a>
+                    @endguest
+                    @auth
+                        <button class="w-2/5 bg-green-accent p-2 rounded-lg">Indienen</button>
+                        <button class="w-2/5 bg-green-accent p-2 rounded-lg">Annuleren</button>
+                    @endauth
                 </div>
             </form>
         </div>

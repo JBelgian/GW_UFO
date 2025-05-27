@@ -48,11 +48,15 @@
     </div>
 @endsection
 <script>
-    const userName = @json(Auth::user()->name ?? 'bezoeker');
+    const userName = @json(Auth::user()->name);
+    const sightings = @json($sightings);
 
     const textsById = {
-        // if sightings.length > 0 then this, anders enkel welkom username
-        welcomeText: `Welkom terug, ${userName}! Klaar om een alien te spotten? 👽`,
-        noAlienText: 'Je hebt nog geen alien activiteit ontdekt!',
+        welcomeText: sightings.length > 0
+            ? `Welkom terug, ${userName}! Klaar om een alien te spotten? 👽`
+            : `Welkom, ${userName}!`,
+        noAlienText: sightings.length === 0
+            ? 'Je hebt nog geen alien activiteit ontdekt!'
+            : '',
     };
 </script>

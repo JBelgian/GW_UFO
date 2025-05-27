@@ -37,4 +37,4 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 
 // Profile/Logout routes
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
-Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');

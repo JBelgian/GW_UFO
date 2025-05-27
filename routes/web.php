@@ -2,16 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SightingController;
+use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Home route
-Route::get('/home', [SightingController::class, 'index']);
+Route::get('/home', [SightingController::class, 'index'])->name('home');
 
-// Sightings rapport route
+// Sightings rapport routes
 Route::get('/rapport', [SightingController::class, 'rapport']);
+Route::post('sighting-post', [SightingController::class, 'sighting'])->name('sighting.post');
 
 // About us route
 Route::get('/about', function () {
@@ -24,6 +26,16 @@ Route::get('/contact', function () {
 });
 
 // Profile route
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [SightingController::class, 'show']);
+
+// Login routes
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+
+// Register routes
+Route::get('registration', [AuthController::class, 'registration'])->name('register');
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+
+// Profile/Logout routes
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');

@@ -19,13 +19,25 @@
         <a href="/contact">Contact</a>
     </div>
     <!-- Login/Register -->
+    @guest
     <div class="flex flex-row gap-4">
-        <div>Login</div>
-        <div>Registreer</div>
+        <div>
+            <a href="login">Log in</a>
+        </div>
+        <div>
+            <a href="registration">Registreer</a>
+        </div>
     </div>
+    @endguest
     <!-- Profile/Logout -->
-    <div class="flex flex-row gap-4 hidden">
-        <div>Profiel</div>
-        <div>log uit</div>
+    @auth
+    <div class="flex flex-row gap-4">
+        <div>
+            <a href="/profile">Profiel</a>
+        </div>
+        <div>
+            <a href="logout">Log uit</a>
+        </div>
     </div>
+    @endauth
 </div>

@@ -28,7 +28,7 @@ class SightingResource extends Resource
                     ->searchable()
                     ->preload()
                     ->required(),
-                Forms\Components\DatePicker::make('date_time')
+                Forms\Components\DateTimePicker::make('date_time')
                     ->required()
                     ->maxDate(now()),
                 Forms\Components\TextInput::make('location')
@@ -36,7 +36,7 @@ class SightingResource extends Resource
                 Forms\Components\TextInput::make('description')
                     ->required(),
                 Forms\Components\Select::make('category')
-                    ->relationship('category', 'description')
+                    ->relationship('categoryRelation', 'description')
                     ->searchable()
                     ->preload()
                     ->required(),
@@ -55,6 +55,9 @@ class SightingResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('description')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('categoryRelation.description')
+                    ->searchable()
+                    ->sortable()
             ])
             ->filters([
                 //

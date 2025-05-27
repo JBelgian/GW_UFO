@@ -11,4 +11,6 @@ class Category extends Model
     {
         return $this->hasMany(Sighting::class);
     }
+
+    public $timestamps = false;
 }

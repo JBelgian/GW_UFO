@@ -24,8 +24,7 @@ class Sighting extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function categories(): HasOne
-    {
-        return $this->hasOne(Category::class);
+    public function categoryRelation() {
+        return $this->belongsTo(Category::class, 'category');
     }
 }

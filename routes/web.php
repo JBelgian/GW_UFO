@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
 
 });
+
+Route::get('/billing', function (Request $request) {
+    return $request->user()->redirectToBillingPortal(route('dashboard'));
+})->middleware(['auth'])->name('billing');
 
 Route::post('stripe/webhook', '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook');
 

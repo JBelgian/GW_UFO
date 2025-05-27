@@ -15,7 +15,7 @@
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
                             <p>You are currently subscribed!</p>
                             <p class="mt-2">
-                                <a href="{{ route('subscribe') }}" class="text-sm underline">Manage Subscription</a>
+                                <a href="{{ route('billing') }}" class="text-sm underline">Manage Subscription</a>
                             </p>
                         </div>
                     @else

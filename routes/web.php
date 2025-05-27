@@ -25,9 +25,7 @@ Route::get('/contact', function () {
 });
 
 // Profile route
-Route::get('/profile', function () {
-    return view('profile');
-});
+Route::get('/profile', [SightingController::class, 'show']);
 
 // Login routes
 Route::get('login', [AuthController::class, 'index'])->name('login');

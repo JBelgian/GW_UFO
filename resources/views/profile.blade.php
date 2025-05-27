@@ -9,27 +9,32 @@
             <div class="text-3xl text-green-light pb-4">
                 Mijn Meldingen
             </div>
+            <!-- Boxes -->
+            @if($sightings->isNotEmpty())
+                @foreach($sightings as $sighting)
+                <div class="flex flex-wrap rounded-lg bg-green-middle text-green-dark w-full p-4 text-lg">
+                    <!-- Upper part -->
+                    <div class="flex w-full justify-between p-1">
+                        <div class="text-2xl">{{$sighting->categoryRelation->description}}</div>
+                        <div class="flex flex-col">
+                            <div class="flex justify-end">{{$sighting->date_time}}</div>
+                            <div class="flex justify-end">{{$sighting->location}}</div>
+                        </div>
+                    </div>
+                    <!-- Lower part -->
+                    <div class="flex w-full">
+                        <div class="w-2/3 mr-1 p-1">{{$sighting->description}}</div>
+                        <div class="w-1/3 ml-1 p-1 border border-green-900">Foto</div>
+                    </div>
+                </div>
+                @endforeach
+            @else
             <!-- No sightings yet -->
             <div class="flex gap-6 flex-col">
                 <img src="{{ asset('Alien.jpg') }}" class="w-1/3 rounded-lg">
                 <div id="noAlienText" class="text-green-light content-center"></div>
             </div>
-            <!-- Boxes -->
-            <div class="flex flex-wrap rounded-lg bg-green-middle text-green-dark w-full p-4 text-lg hidden">
-                <!-- Upper part -->
-                <div class="flex w-full justify-between p-1">
-                    <div class="text-2xl">Soort</div>
-                    <div class="flex flex-col">
-                        <div class="flex justify-end">Datum - Tijd</div>
-                        <div class="flex justify-end">Locatie</div>
-                    </div>
-                </div>
-                <!-- Lower part -->
-                <div class="flex w-full">
-                    <div class="w-2/3 mr-1 p-1 border border-green-900">Beschrijving</div>
-                    <div class="w-1/3 ml-1 p-1 border border-green-900">Foto</div>
-                </div>
-            </div>
+            @endif
         </div>
         <!-- User info -->
         <div class="flex flex-col w-1/3 p-4">

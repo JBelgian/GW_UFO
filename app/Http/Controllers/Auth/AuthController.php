@@ -47,7 +47,7 @@ class AuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('profile');
         }
   
         return redirect("login")->withError('Oops! Je email en/of wachtwoord zijn incorrect.');
@@ -71,7 +71,7 @@ class AuthController extends Controller
             
         Auth::login($user); 
 
-        return redirect("dashboard");
+        return redirect("profile");
     }
     
     /**
@@ -82,7 +82,7 @@ class AuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('dashboard');
+            return view('profile');
         }
   
         return redirect("login");

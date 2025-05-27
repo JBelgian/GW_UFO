@@ -21,7 +21,7 @@ class SightingsSeeder extends Seeder
                 'date_time' => Carbon::now(),
                 'location' => 'Genk',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu hendrerit metus.',
-                'category' => 1,
+                'category' => 6,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
@@ -30,12 +30,12 @@ class SightingsSeeder extends Seeder
                 'date_time' => Carbon::now(),
                 'location' => 'Brussel',
                 'description' => 'Pellentesque volutpat tellus vitae justo viverra scelerisque.',
-                'category' => 4,
+                'category' => 8,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
             [
-                'user_id' => 2,
+                'user_id' => 5,
                 'date_time' => Carbon::now(),
                 'location' => 'Oostende',
                 'description' => 'Praesent ac rhoncus leo.',

@@ -114,4 +114,41 @@ class AuthController extends Controller
   
         return Redirect('login');
     }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function password() {
+        return view('auth.password');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function update(Request $request) {
+        $request->validate([
+            'current_password' => ['required'],
+            'new_password' => ['required', 'confirmed', 'min:8'],
+        ], [
+            'current_password.required' => 'Het huidige wachtwoord is verplicht.',
+            'new_password.required' => 'Het nieuwe wachtwoord is verplicht.',
+            'new_password.confirmed' => 'Het nieuwe wachtwoord komt niet overeen.',
+            'new_password.min' => 'Het nieuwe wachtwoord moet minstens 8 tekens lang zijn.',
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->with('error', 'Huidig wachtwoord is onjuist.')->withInput();
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->route('profile')->with('success', 'Wachtwoord succesvol veranderd.');
+    }
 }

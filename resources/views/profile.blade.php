@@ -47,9 +47,9 @@
             <div class="flex justify-end text-2xl text-green-light text-right" id="welcomeText">
 
             </div>
-            <button class="flex justify-end text-green-accent">
+            <a href="password" class="flex justify-end text-green-accent">
                 Wachtwoord wijzigen
-            </button>
+            </a>
         </div>
     </div>
 @endsection

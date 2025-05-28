@@ -4,12 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SightingController;
 use App\Http\Controllers\Auth\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Home route
-Route::get('/home', [SightingController::class, 'index'])->name('home');
+Route::get('/', [SightingController::class, 'index'])->name('home');
 
 // Sightings rapport routes
 Route::get('/rapport', [SightingController::class, 'rapport']);

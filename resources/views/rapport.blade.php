@@ -1,4 +1,4 @@
-@vite(['resources/js/imagePreview.js'])
+@vite(['resources/js/imagePreview.js', 'resources/js/form.js'])
 @extends('layout')
 
 @section('content')
@@ -55,33 +55,17 @@
                 @error('image')
                     <div class="text-red-600 text-sm p-2 error-message">{{ $message }}</div>
                 @enderror
+                <!-- buttons -->
                 <div class="flex flex-row justify-center gap-6">
                     @guest
                         <a class="w-2/5 bg-green-accent p-2 rounded-lg text-center" href="login">Log in om een melding te doen</a>
                     @endguest
                     @auth
                         <button class="w-2/5 bg-green-accent p-2 rounded-lg" type="submit">Indienen</button>
-                        <button class="w-2/5 bg-green-accent p-2 rounded-lg">Annuleren</button>
+                        <button class="w-2/5 bg-green-accent p-2 rounded-lg" type="button" onclick="resetForm()">Annuleren</button>
                     @endauth
                 </div>
             </form>
         </div>
     </div>
 @endsection
-
-<script>
-    function filterCityNameIntl(input) {
-    // Allow letters (including accented), spaces, hyphens, apostrophes, and periods
-    input.value = input.value.replace(/[^\p{L}\s\-\.']/gu, '');
-    }
-
-    // Keeps the error message visible for 1Os
-    setTimeout(() => {
-        const errorMessages = document.querySelectorAll('.error-message');
-        errorMessages.forEach(el => {
-            el.style.transition = 'opacity 1s';
-            el.style.opacity = '0';
-            setTimeout(() => el.remove(), 1000);
-        });
-    }, 5000);
-</script>

@@ -32,15 +32,6 @@
     <!-- Profile/Logout -->
     @auth
     <div class="flex flex-row gap-4">
-    @if(auth()->user()->subscribed('patron'))
-            <div>
-                <a href="{{ route('billing.portal') }}" class="text-green-dark hover:text-green-light">Beheer Abonnement</a>
-            </div>
-        @else
-            <div>
-                <a href="{{ route('subscription.show') }}" class="text-green-dark hover:text-green-light">Word Patron</a>
-            </div>
-        @endif
         <div>
             <a href="/profile">Profiel</a>
         </div>

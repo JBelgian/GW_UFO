@@ -13,7 +13,7 @@
 <div class="flex flex-row justify-between pt-8 pl-6 pb-8 pr-6 text-lg rounded-lg bg-green-middle text-green-dark">
     <!-- Home -->
     <div>
-        <a href="/home">Home</a>
+        <a href="/">Home</a>
     </div>
     <!-- Note Alien sighting -->
     <div>

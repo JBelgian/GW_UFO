@@ -2,17 +2,6 @@
 @extends('layout')
 
 @section('content')
-    <head>
-        <style>
-            .scrollbar-hide {
-            -ms-overflow-style: none;  /* Internet Explorer 10+ */
-            scrollbar-width: none;  /* Firefox */
-            }
-            .scrollbar-hide::-webkit-scrollbar { 
-            display: none;  /* Safari and Chrome */
-            }
-        </style>
-    </head>
     <div class="flex justify-center">
         <div class="flex flex-col w-2/3">
             <div class="flex pt-2 pr-2 pb-2 text-2xl text-green-light">

@@ -1,5 +1,14 @@
 <head>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .scrollbar-hide {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        }
+        .scrollbar-hide::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+        }
+    </style>
 </head>
 <div class="flex flex-row justify-between pt-8 pl-6 pb-8 pr-6 text-lg rounded-lg bg-green-middle text-green-dark">
     <!-- Home -->

@@ -2,7 +2,7 @@
 @extends('layout')
 
 @section('content')
-    <div class="flex flex-row ml-10 mr-10">
+    <div class="flex flex-row ml-10 mr-10 h-4/5">
         <!-- User Alien sightings -->
         <div class="flex flex-col w-2/3 p-4">
             <!-- Titel -->
@@ -11,6 +11,7 @@
             </div>
             <!-- Boxes -->
             @if($sightings->isNotEmpty())
+            <div class="overflow-y-auto scrollbar-hide rounded-lg">
                 @foreach($sightings as $sighting)
                 <div class="flex flex-wrap rounded-lg bg-green-middle text-green-dark w-full mb-4 p-4 text-lg">
                     <!-- Upper part -->
@@ -32,6 +33,7 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
             @else
             <!-- No sightings yet -->
             <div class="flex gap-6 flex-col">

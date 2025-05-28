@@ -53,10 +53,12 @@
         </div>
     </div>
 @endsection
+
 <script>
     const userName = @json(Auth::user()->name);
     const sightings = @json($sightings);
 
+    // Sets messages to display with typewriter
     const textsById = {
         welcomeText: sightings.length > 0
             ? `Welkom terug, ${userName}! Klaar om een alien te spotten? 👽`

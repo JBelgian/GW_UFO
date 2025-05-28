@@ -44,6 +44,29 @@
             <div class="flex justify-end text-green-accent">
                 Wachtwoord wijzigen
             </div>
+            @if(auth()->user()->subscribed('patron'))
+                <div class="p-4 bg-green-light rounded-lg mt-4">
+                    <h3 class="text-xl font-bold text-green-dark">Patron Status: Actief</h3>
+                    <p class="text-green-dark">Hartelijk dank voor uw ondersteuning!</p>
+                    <a href="{{ route('billing.portal') }}" class="inline-block mt-2 p-2 bg-green-accent text-green-dark rounded-lg">
+                        Beheer Abonnement
+                    </a>
+                </div>
+            @else
+                <div class="p-4 bg-green-middle rounded-lg mt-4">
+                    <h3 class="text-xl font-bold text-green-dark">Word Patron</h3>
+                    <p class="text-green-dark">Ondersteun ons werk door patron te worden.</p>
+                    <a href="{{ route('subscription.show') }}" class="inline-block mt-2 p-2 bg-green-accent text-green-dark rounded-lg">
+                        Word Patron
+                    </a>
+                </div>
+            @endif
+
+            @if(request()->has('subscription') && request('subscription') == 'success')
+                <div class="p-4 bg-green-light rounded-lg mt-4">
+                    <p class="text-green-dark">Bedankt voor uw abonnement!</p>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

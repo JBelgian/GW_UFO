@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SightingController;
 use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\SubscriptionController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +29,7 @@ Route::get('/contact', function () {
 });
 
 // Profile route
-Route::get('/profile', [SightingController::class, 'show']);
+Route::get('/profile', [SightingController::class, 'show'])->name('profile');
 
 // Login routes
 Route::get('login', [AuthController::class, 'index'])->name('login');
@@ -39,3 +42,20 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 // Profile/Logout routes
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+//patron subscription route
+// ...existing routes
+
+// Stripe webhook (no auth middleware!)
+Route::post('/stripe/webhook', [\Laravel\Cashier\Http\Controllers\WebhookController::class, 'handleWebhook'])
+    ->name('cashier.webhook');
+
+// Group authenticated subscription routes
+Route::middleware('auth')->group(function () {
+    Route::get('/subscribe', [SubscriptionController::class, 'show'])->name('subscription.show');
+    Route::post('/subscribe', [SubscriptionController::class, 'checkout'])->name('subscription.process');
+    
+    Route::get('/billing', function (Request $request) {
+        return $request->user()->redirectToBillingPortal(route('profile'));
+    })->name('billing.portal');
+});

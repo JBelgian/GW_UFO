@@ -7,12 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\SubscriptionController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Home route
-Route::get('/home', [SightingController::class, 'index'])->name('home');
+Route::get('/', [SightingController::class, 'index'])->name('home');
 
 // Sightings rapport routes
 Route::get('/rapport', [SightingController::class, 'rapport']);
@@ -43,6 +39,9 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('password', [AuthController::class, 'password']);
+Route::post('/change-password', [AuthController::class, 'update'])->name('password.update');
+
 //patron subscription route
 // ...existing routes
 
@@ -59,3 +58,5 @@ Route::middleware('auth')->group(function () {
         return $request->user()->redirectToBillingPortal(route('profile'));
     })->name('billing.portal');
 });
+
+

@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="flex justify-center">
+        <!-- box -->
         <div class="flex flex-col w-2/3 p-4 bg-green-middle text-green-dark rounded-lg">
+            <!-- title -->
             <h1 class="text-3xl p-2 text-green-test">Contacteer Ons</h1>
+            <!-- text -->
             <p class="p-2 text-justify">
                 Heb je vragen, suggesties of wil je meer informatie over buitenaardse waarnemingen? Neem gerust contact met ons op via onderstaande gegevens.
             </p>

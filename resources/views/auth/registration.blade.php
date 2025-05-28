@@ -3,8 +3,11 @@
 @section('content')
 <div class="flex justify-center">
     <div class="flex flex-col w-2/3">
+        <!-- title -->
         <h2 class="flex text-green-light text-3xl justify-center m-2 p-2">Maak een account aan</h2>
+        <!-- box -->
         <div class="flex flex-col bg-green-middle p-4 rounded-lg">
+            <!-- form -->
             <form method="POST" action="{{ route('register.post') }}">
               @csrf
 
@@ -45,11 +48,13 @@
                         {{ $value }}
                     </div>
                 @endsession
+                <!-- button -->
                 <div class="flex justify-center">
                     <button class="w-4/5 mt-2 p-2 bg-green-accent text-green-dark rounded-xl" type="submit">{{ __('Registreer') }}</button>
                 </div>
               </div>
             </form>
+            <!-- log in reference -->
             <div class="flex flex-row justify-center text-green-dark gap-2 mt-4">
                 <span>Heb je een account? </span><a href="{{ route('login') }}" class="link-primary text-decoration-none">Log in</a>
             </div>

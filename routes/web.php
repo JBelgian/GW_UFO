@@ -26,7 +26,7 @@ Route::get('/contact', function () {
 });
 
 // Profile route
-Route::get('/profile', [SightingController::class, 'show']);
+Route::get('/profile', [SightingController::class, 'show'])->name('profile');
 
 // Login routes
 Route::get('login', [AuthController::class, 'index'])->name('login');
@@ -39,3 +39,6 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 // Profile/Logout routes
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('password', [AuthController::class, 'password']);
+Route::post('/change-password', [AuthController::class, 'update'])->name('password.update');

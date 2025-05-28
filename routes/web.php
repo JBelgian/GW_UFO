@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SightingController;
 use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Http\Request;
+use App\Http\Controllers\SubscriptionController;
+
 
 // Home route
 Route::get('/', [SightingController::class, 'index'])->name('home');
@@ -38,3 +41,22 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('password', [AuthController::class, 'password']);
 Route::post('/change-password', [AuthController::class, 'update'])->name('password.update');
+
+//patron subscription route
+// ...existing routes
+
+// Stripe webhook (no auth middleware!)
+Route::post('/stripe/webhook', [\Laravel\Cashier\Http\Controllers\WebhookController::class, 'handleWebhook'])
+    ->name('cashier.webhook');
+
+// Group authenticated subscription routes
+Route::middleware('auth')->group(function () {
+    Route::get('/subscribe', [SubscriptionController::class, 'show'])->name('subscription.show');
+    Route::post('/subscribe', [SubscriptionController::class, 'checkout'])->name('subscription.process');
+    
+    Route::get('/billing', function (Request $request) {
+        return $request->user()->redirectToBillingPortal(route('profile'));
+    })->name('billing.portal');
+});
+
+

@@ -40,7 +40,7 @@ class SightingController extends Controller
         ]);
 
         $imagePath = null;
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $imagePath = $request->file('image')->store('sightings', 'public');
         }
 

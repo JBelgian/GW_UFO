@@ -12,19 +12,23 @@
             <!-- Boxes -->
             @if($sightings->isNotEmpty())
                 @foreach($sightings as $sighting)
-                <div class="flex flex-wrap rounded-lg bg-green-middle text-green-dark w-full p-4 text-lg">
+                <div class="flex flex-wrap rounded-lg bg-green-middle text-green-dark w-full mb-4 p-4 text-lg">
                     <!-- Upper part -->
                     <div class="flex w-full justify-between p-1">
                         <div class="text-2xl">{{$sighting->categoryRelation->description}}</div>
                         <div class="flex flex-col">
-                            <div class="flex justify-end">{{$sighting->date_time}}</div>
+                            <div class="flex justify-end">{{ \Carbon\Carbon::parse($sighting->date_time)->format('d F Y - H:i') }}</div>
                             <div class="flex justify-end">{{$sighting->location}}</div>
                         </div>
                     </div>
                     <!-- Lower part -->
                     <div class="flex w-full">
                         <div class="w-2/3 mr-1 p-1">{{$sighting->description}}</div>
-                        <div class="w-1/3 ml-1 p-1 border border-green-900">Foto</div>
+                        @if($sighting->photo != null)
+                        <div class="w-1/3 ml-2">
+                            <img class="rounded-lg max-h-96" src="{{ asset('storage/' . $sighting->photo) }}">
+                        </div>
+                        @endif
                     </div>
                 </div>
                 @endforeach
